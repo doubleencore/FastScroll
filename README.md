@@ -1,3 +1,11 @@
+This is a fork of the the [FastScroll](https://github.com/L4Digital/FastScroll) Library. We've made two customations to make this work for our projects:
+
+* Updated [FastScroller.SectionIndexer#getSectionText()](https://github.com/doubleencore/FastScroll/blob/master/fastscroll/src/main/java/com/l4digital/fastscroll/FastScroller.java#L55) to return a CharSequence instead of a string. This allows us to pass Spans so we can customize the text including passing is ImageSpans. 
+* Updated [FastScroller#setRecyclerViewPosition()](https://github.com/doubleencore/FastScroll/blob/master/fastscroll/src/main/java/com/l4digital/fastscroll/FastScroller.java#L414) to base the section text shown based on the item under the thumb instead of the top most item. This ensures that ALL section headers can be shown in the bubble, including small sections at the end ("Z")
+
+Below the break is the original README. 
+
+---
 # FastScroll
 [![License](http://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square)](http://www.apache.org/licenses/LICENSE-2.0)
 [![API](https://img.shields.io/badge/API-14%2B-blue.svg?style=flat-square)](https://developer.android.com/about/versions/android-4.0.html)
@@ -80,7 +88,7 @@ class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ViewHolder> imp
     ...
 
     @Override
-    public String getSectionText(int position) {
+    public CharSequence getSectionText(int position) {
         return getItem(position).getIndex();
     }
 }
