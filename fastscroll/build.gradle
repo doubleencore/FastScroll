@@ -24,6 +24,7 @@ def libraryVersion = '1.1.1'
 
 repositories {
     google()
+    jcenter()
 }
 
 android {
