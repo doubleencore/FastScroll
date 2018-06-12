@@ -23,7 +23,9 @@ def libraryGroup = 'com.l4digital.fastscroll'
 def libraryVersion = '1.1.1'
 
 repositories {
+    mavenCentral()
     google()
+    jcenter()
 }
 
 android {
